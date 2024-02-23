@@ -2,7 +2,9 @@
 
 This example is for the YoJSON library
 
-# Source for example
+https://opam.ocaml.org/packages/yojson/
+
+# Source file
 
 `bin/main.ml`
 
@@ -10,8 +12,6 @@ This example is for the YoJSON library
 
 `dune exec ./bin/main.exe`
 
-# Cleaning
+# Cleaning up
 
 `dune clean`
-
-# References
