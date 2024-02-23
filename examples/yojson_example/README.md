@@ -2,12 +2,16 @@
 
 This example is for the YoJSON library
 
-# Building
+# Source for example
 
-# Running
+`bin/main.ml`
+
+# Building and running
 
 `dune exec ./bin/main.exe`
 
+# Cleaning
+
+`dune clean`
+
 # References
-
-
