@@ -1,4 +1,3 @@
 (executable
- (public_name yojson_example)
  (name main)
- (libraries yojson_example yojson))
+ (libraries yojson))
