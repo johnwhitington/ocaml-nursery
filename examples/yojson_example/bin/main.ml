@@ -1,9 +1,14 @@
-(* For now, just the example from the Yojson docs *)
-let json_string = {|
-  {"number" : 42,
-   "string" : "yes",
-   "list": ["for", "sure", 42]}|}
+let contents_of_file filename =
+  let ch = open_in_bin filename in
+    try
+      let s = really_input_string ch (in_channel_length ch) in
+        close_in ch;
+        s
+    with
+      e -> close_in ch; raise e
 
-let json = Yojson.Safe.from_string json_string
-
-let () = Format.printf "Parsed to %a" Yojson.Safe.pp json
+let () =
+  match Sys.argv with
+  | [|_; "printparsed"; filename|] ->
+      Format.printf "Parsed: %a" Yojson.Safe.pp (Yojson.Safe.from_string (contents_of_file filename))
+  | _ -> Printf.eprintf "yojson_example: unknown command line\n"
