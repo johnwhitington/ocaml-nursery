@@ -35,8 +35,17 @@ let rec sum_json : Yojson.Safe.t -> float = function
 let sum filename =
   Printf.printf "%f\n" (sum_json (Yojson.Safe.from_string (contents_of_file filename)))
 
-(* Read some JSON from a file, and process it and produce new JSON, and write to file. *)
-let process in_filename out_filename = ()
+(* Read some JSON from a file, reverse any lists in it, and write to file. *)
+let rec reverse_json = function
+  | `List l -> `List (List.rev (List.map reverse_json l))
+  | `Assoc l -> `Assoc (List.map (fun (k, v) -> (k, reverse_json v)) l)
+  | x -> x
+
+let reverse in_filename out_filename =
+  let json = reverse_json (Yojson.Safe.from_string (contents_of_file in_filename)) in
+  let fh = open_out out_filename in
+    output_string fh (Yojson.Safe.pretty_to_string json);
+    close_out fh
 
 (* 6. Different kinds of JSON *)
 
@@ -49,5 +58,5 @@ let () =
   | [|_; "print_parse_tree"|] -> print_parse_tree ()
   | [|_; "prettyprint"|] -> prettyprint ()
   | [|_; "sum"; filename|] -> sum filename
-  | [|_; "process"; in_filename; out_filename|] -> process in_filename out_filename
+  | [|_; "reverse"; in_filename; out_filename|] -> reverse in_filename out_filename
   | _ -> Printf.eprintf "yojson_example: unknown command line\n"
