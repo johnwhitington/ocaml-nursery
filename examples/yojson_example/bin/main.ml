@@ -1,3 +1,4 @@
+(* Get a file as a string *)
 let contents_of_file filename =
   let ch = open_in_bin filename in
     try
@@ -7,10 +8,10 @@ let contents_of_file filename =
     with
       e -> close_in ch; raise e
 
-(* Create some JSON in line as a string *)
+(* JSON inline as a string *)
 let json_string =
   {|{"Number" : 1,
-     "String" : "yes",
+     "String" : "two",
      "List": ["containing", "different", "types", 35.4]}|}
 
 (* Print as parse tree *)
@@ -21,7 +22,7 @@ let print_parse_tree () =
 let prettyprint () =
   Printf.printf "%s\n" (Yojson.Safe.pretty_to_string (Yojson.Safe.from_string json_string))
 
-(* Read some JSON from a file, and add up all numbers in it. *)
+(* Read some JSON from a file, add up all numbers, and print. *)
 let sum_floats = List.fold_left ( +. ) 0.
 
 let rec sum_json : Yojson.Safe.t -> float = function
@@ -46,12 +47,6 @@ let reverse in_filename out_filename =
   let fh = open_out out_filename in
     output_string fh (Yojson.Safe.pretty_to_string json);
     close_out fh
-
-(* 6. Different kinds of JSON *)
-
-(* 7. Dealing with errors *)
-
-(* 8. Different kinds of prettyprinting *)
 
 let () =
   match Sys.argv with
