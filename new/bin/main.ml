@@ -28,9 +28,11 @@ let contents_of_file filename =
       e -> close_in ch; raise e
 
 let directory path =
+  Printf.printf "dir %S\n" path;
   Sys.mkdir path 0o755
 
 let file fromname toname exname =
+  Printf.printf "file %S %S\n" fromname toname;
   let str = contents_of_file fromname in
   let str' = string_replace_all "EXNAME" exname str in
   let fh = open_out_bin toname in
@@ -38,13 +40,15 @@ let file fromname toname exname =
     close_out fh
 
 let instantiate exname =
-  directory ("../examples/" ^ exname); (* FIXME Filename module for proper separators. *)
-  directory ("../examples/" ^ exname ^ "/bin");
-  file ("../template/README.md") ("../examples/" ^ exname ^ "/README.md") exname;
-  file ("../template/dune-project") ("../examples/" ^ exname ^ "/dune-project") exname;
-  file ("../template/dune-workspace") ("../examples/" ^ exname ^ "/dune-workspace") exname;
-  file ("../template/bin/dune") ("../examples/" ^ exname ^ "/bin/dune") exname;
-  file ("../template/bin/main.ml") ("../examples/" ^ exname ^ "/bin/main.ml") exname
+  let p = Filename.parent_dir_name in
+  let c = Filename.concat in
+    directory (c (c p "examples") exname);
+    directory (c (c (c p "examples") exname) "bin");
+    file (c (c p "template") "README.md") (c (c (c p "examples") exname) "README.md") exname;
+    file (c (c p "template") "dune-project") (c (c (c p "examples") exname) "dune-project") exname;
+    file (c (c p "template") "dune-workspace") (c (c (c p "examples") exname) "dune-workspace") exname;
+    file (c (c (c p "template") "bin") "dune") (c (c (c (c p "examples") exname) "bin") "dune") exname;
+    file (c (c (c p "template") "bin") "main.ml") (c (c (c (c p "examples") exname) "bin") "main.ml") exname
 
 let () =
   match Sys.argv with
