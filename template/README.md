@@ -10,7 +10,7 @@ https://opam.ocaml.org/packages/EXNAME
 
 # Building and running
 
-`dune exec ./bin/main.exe`
+`dune exec bin/main.exe`
 
 # Cleaning up
 
