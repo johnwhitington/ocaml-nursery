@@ -1,4 +1,7 @@
-(* Get a file as a string *)
+(* Copy the template files, doing search and replace on EXNAME. *)
+let instantiate libraryname = ()
+
 let () =
   match Sys.argv with
-  | _ -> Printf.eprintf "EXNAME_example: unknown command line\n"
+  | [|_; libraryname|] -> instantiate libraryname
+  | _ -> Printf.eprintf "new: unknown command line\n"
