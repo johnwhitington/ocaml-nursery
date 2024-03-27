@@ -16,7 +16,24 @@ let go_char () =
 
 (* String module, basics. *)
 let go_string_1 () =
-  ()
+  (* The printable ASCII charcters as a string, using String.v (which
+     initialises a string based on a length and an int -> char function. *)
+  let all = String.v ~len:(126 - 32 + 1) (fun x -> Char.of_byte (x + 32)) in
+  (* We can print astrings just like normal OCaml strings with %s. *)
+  Printf.printf "ASCII Printables: %s\n" all;
+  (* And access their members normally too: *)
+  Printf.printf "The tenth place is '%c'\n" all.[10];
+  (* And use string literals as astrings: *)
+  let infix = String.is_infix ~affix:"1234567890" all in
+  Printf.printf "1234567890 in the string? %b\n" infix;
+  (* Extract a substring of an existing string. NB: In go_string_2 we'll see how
+  to use Astring's own substrings to do this more efficiently, without copying. *)
+  let upper_case = String.with_index_range ~first:(65 - 32) ~last:(65 - 32 + 26 - 1) all in
+  Printf.printf "Upper case: %s\n" upper_case;
+  (* String.cut will gives what comes on either side of a substring: *)
+  match String.cut ~sep:"Q" upper_case with
+  | Some (before, after) -> Printf.printf "Before Q: %s, after Q: %s\n" before after
+  | _ -> assert false
 
 (* No-copy substrings *)
 let go_string_2 () =
