@@ -56,7 +56,20 @@ let go_string_2 () =
 
 (* Traversing strings *)
 let go_string_3 () =
-  ()
+  (* The printable ASCII character as a string, as in go_string_1 above. *)
+  let all = String.v ~len:(126 - 32 + 1) (fun x -> Char.of_byte (x + 32)) in
+  (* Finding a character *)
+  let first_alpha = String.find Char.Ascii.is_alphanum all in
+  Printf.printf "first_alpha: %s\n" (match first_alpha with Some x -> string_of_int x | None -> "");
+  (* Finding a string *)
+  let abc = String.find_sub ~sub:"abc" all in
+  Printf.printf "abc: %s\n" (match abc with Some x -> string_of_int x | None -> "");
+  (* Mapping *)
+  let blanked = String.map (fun x -> if Char.Ascii.is_alphanum x then x else ' ') all in
+  Printf.printf "blanked: %s\n" blanked;
+  (* Filtering *)
+  let alphanumeric = String.filter Char.Ascii.is_alphanum all in
+  Printf.printf "alphanumeric: %s\n" alphanumeric
 
 let () =
   match Sys.argv with
