@@ -37,7 +37,22 @@ let go_string_1 () =
 
 (* No-copy substrings *)
 let go_string_2 () =
-  ()
+  (* The printable ASCII character as a string, as in go_string_1 above. *)
+  let all = String.v ~len:(126 - 32 + 1) (fun x -> Char.of_byte (x + 32)) in
+  (* Take a substring. Note that ~stop here is different from ~last in go_string_1 *)
+  let sub = String.Sub.v ~start:(65 - 32) ~stop:(65 - 32 + 26) all in
+  (* (We could also have used String.sub, which is the same thing) *)
+  Printf.printf "sub: %s\n" (String.Sub.to_string sub);
+  (* Here is the diagram from the Astring documentation:
+       positions  0   1   2   3   4    l-1    l
+                  +---+---+---+---+     +-----+
+         indices  | 0 | 1 | 2 | 3 | ... | l-1 |
+                  +---+---+---+---+     +-----+ 
+     In String.sub, for example, 'start' and 'stop' are positions. *)
+  (* Or, to print without copying *)
+  Printf.printf "sub printed without copying: ";
+  for x = 0 to String.Sub.length sub - 1 do Printf.printf "%c" (String.Sub.get sub x) done;
+  Printf.printf "\n"
 
 (* Traversing strings *)
 let go_string_3 () =
