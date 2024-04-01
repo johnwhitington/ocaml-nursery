@@ -1,10 +1,18 @@
 open Sexplib
 
-(* FIXME quick intro to sexps here *)
+(* An S-expression (or sexp) is a human-readable form for tree-like
+   expressions. The Sexplib library provides for parsing and printing such
+   structures. Here is the main type:
 
-(* Some Caribbean islands which contain more than one territory. Notice we are
-   using a "local open" with Sexp here to avoid writing Sexp.list and Sexp.Atom
-   multple times. *)
+  type sexp = Atom of string | List of sexp list
+
+  Sexplib is often used in conjuction with ppx_sexp_conv which generates code
+  from type definitions to convert OCaml expressions to and from s-expressions.
+*)
+
+(* A little example. Some Caribbean islands which contain more than one
+   territory. Notice we are using a "local open" with Sexp here to avoid
+   writing Sexp.list and Sexp.Atom multple times. *)
 let divided_islands =
   Sexp.(List
     [List [Atom "Hispaniola"; List [Atom "Haiti"; Atom "Dominican Republic"]];
