@@ -6,6 +6,16 @@ type tree =
   | Lf
   | Br of tree * int * tree [@@deriving sexp]
 
+(* This will be rendered as sexp as follows:
+
+      - The int will be converted to a Sexp.Atom using string_of_int
+      - The constructors Lf and Br will be converted to Sexp.Atoms
+      - Br values will be Sexp.List of the three values (the left
+        tree, the integer, the right tree)
+   
+   Two functions, sexp_of_tree and tree_of_sexp will be generated
+   automatically. *)
+
 let rec sum = function
   | Lf -> 0
   | Br (l, x, r) -> sum l + x + sum r
