@@ -1,2 +1,2 @@
 (lang dune 3.14)
-(name ppx_sexp_conv)
+(name ppx_deriving)
