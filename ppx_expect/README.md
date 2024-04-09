@@ -1,6 +1,6 @@
 # ppx_deriving
 
-This example is for the ppx_deriving library
+This example is for the ppx_d library
 
 https://opam.ocaml.org/packages/ppx_deriving
 
@@ -10,7 +10,7 @@ https://opam.ocaml.org/packages/ppx_deriving
 
 # Building and running
 
-`dune exec bin/main.exe`
+`dune runtest`
 
 # Cleaning up
 

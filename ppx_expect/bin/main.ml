@@ -1,7 +1,6 @@
-let go () =
-  ()
+(* ppx_expect doesn't work on executables, so this is a library. Run with
+   "dune runtest" rather than "dune exec" *)
 
-let () =
-  match Sys.argv with
-  | [|_|] -> go  ()
-  | _ -> Printf.eprintf "ppx_expect example: unknown command line\n"
+let%expect_test "addition" =
+  Printf.printf "%d" (1 + 2);
+  [%expect {| 4 |}]

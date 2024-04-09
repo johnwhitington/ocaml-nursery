@@ -1,4 +1,5 @@
-(executable
+(library
  (name main)
- (libraries ppx_expect)
+ (inline_tests)
+ (libraries sexplib)
  (preprocess (pps ppx_expect)))
