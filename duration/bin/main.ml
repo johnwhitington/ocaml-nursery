@@ -1,13 +1,24 @@
+(* Duration provides a way of storing durations from one nanosecond to 584
+   years in a 64 bit integer. Note that it does not know the time, or lengths
+   of months, or clock changes, or about leap years, and so on. It believes
+   that there are 8766 hours in a year. *)
+
 let go () =
-  Printf.printf "of_char: %c%c\n" (fst (Hex.of_char 'A')) (snd (Hex.of_char 'A'));
-  Printf.printf "to_char: %C\n" (Hex.to_char '4' '1');
-  Printf.printf "of_string: `Hex %S\n"
-    (match (Hex.of_string "ABCDE") with `Hex x -> x);
-  Printf.printf "to_string: %S\n" (Hex.to_string (`Hex "4142434445"));
-  (* similar functions for bytes, cstrict, and bigstring also exist. *)
-  Hex.hexdump (Hex.of_string "Mary had a little lamb; it's fleece was white as snow.")
+  Printf.printf "112 days is %Li\n"
+    (Duration.of_day 112);
+  Printf.printf "21 hours is %Li\n"
+    (Duration.of_hour 21);
+  Printf.printf "112 days and 21 hours is %Li\n"
+    (Int64.add (Duration.of_day 112) (Duration.of_hour 21));
+  Printf.printf "Which is %Li milliseconds\n"
+    (Duration.to_ms_64 (Int64.add (Duration.of_day 112) (Duration.of_hour 21)));
+  (* Use the formatter to print to stdout *)
+  Duration.pp
+    Format.std_formatter
+    (Int64.add (Duration.of_day 112) (Duration.of_hour 21));
+  Format.pp_print_newline Format.std_formatter ()
 
 let () =
   match Sys.argv with
   | [|_|] -> go ()
-  | _ -> Printf.eprintf "hex example: unknown command line\n"
+  | _ -> Printf.eprintf "duration example: unknown command line\n"
