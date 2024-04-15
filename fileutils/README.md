@@ -1,8 +1,8 @@
 # digestif
 
-This example is for the digestif library
+This example is for the fileutils library
 
-https://opam.ocaml.org/packages/digestif
+https://opam.ocaml.org/packages/fileutils
 
 # Source file
 
