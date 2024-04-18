@@ -5,7 +5,8 @@
        as cp and rm, but implemented in pure, portable OCaml.
 *)
 
-let go () =
+(* Some examples from the FilePath module for file path manipultation. *)
+let filepath () =
   let filename = "dune" in
     Printf.printf "Current dir %S\n"
       FilePath.current_dir;
@@ -20,7 +21,17 @@ let go () =
     Printf.printf "Making a PATH string: %S\n"
       (FilePath.string_of_path ["one"; FilePath.make_filename ["two"; "three"]])
 
+(* Example of using filepath manipulation functions for multiple platforms. *)
+let ospath () =
+  ()
+
+(* The main FileUtil module, for POSIX-style filesystem manipulation. *)
+let fileutil () =
+  ()
+
 let () =
   match Sys.argv with
-  | [|_|] -> go ()
+  | [|_; "filepath"|] -> filepath ()
+  | [|_; "ospath"|] -> ospath ()
+  | [|_; "fileutil"|] -> fileutil ()
   | _ -> Printf.eprintf "fileutils example: unknown command line\n"
