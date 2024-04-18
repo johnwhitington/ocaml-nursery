@@ -1,0 +1,5 @@
+#!/bin/bash
+#Run dune clean inside every directory
+for d in */ ; do
+  cd $d; dune clean; cd ..
+done
