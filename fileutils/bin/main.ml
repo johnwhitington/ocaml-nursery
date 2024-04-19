@@ -23,7 +23,13 @@ let filepath () =
 
 (* Example of using filepath manipulation functions for multiple platforms. *)
 let ospath () =
-  ()
+  let structure = [FilePath.parent_dir; "one"; "two"; "three"] in
+    Printf.printf "Unix: %S\nWindows: %S\nCygwin: %S\nDefault: %S = FilePath.: %S\n"
+      (FilePath.UnixPath.make_filename structure)
+      (FilePath.Win32Path.make_filename structure)
+      (FilePath.CygwinPath.make_filename structure)
+      (FilePath.DefaultPath.make_filename structure)
+      (FilePath.make_filename structure)
 
 (* The main FileUtil module, for POSIX-style filesystem manipulation. *)
 let fileutil () =
