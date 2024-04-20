@@ -1,2 +1,2 @@
 (lang dune 3.14)
-(name ppx_expect)
+(name ppx_expect_example)
