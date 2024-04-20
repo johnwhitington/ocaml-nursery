@@ -1,8 +1,8 @@
 # stringext
 
-This example is for the astring library
+This example is for the stringext library
 
-https://opam.ocaml.org/packages/astring
+https://opam.ocaml.org/packages/stringext
 
 # Source file
 

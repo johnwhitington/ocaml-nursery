@@ -1,4 +1,4 @@
-# digestif
+# duration
 
 This example is for the duration library
 

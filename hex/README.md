@@ -1,8 +1,8 @@
-# digestif
+# hex
 
-This example is for the digestif library
+This example is for the hex library
 
-https://opam.ocaml.org/packages/digestif
+https://opam.ocaml.org/packages/hex
 
 # Source file
 

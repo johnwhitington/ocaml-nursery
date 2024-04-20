@@ -1,4 +1,4 @@
-# template\_example
+# template
 
 This example is for the template library
 

@@ -1,8 +1,8 @@
-# ppx_deriving
+# ppx_inline_test
 
-This example is for the ppx_d library
+This example is for the ppx_inline_test library
 
-https://opam.ocaml.org/packages/ppx_deriving
+https://opam.ocaml.org/packages/ppx_inline_test
 
 # Source file
 

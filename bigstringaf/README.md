@@ -1,8 +1,8 @@
-# digestif
+# bigstringaf
 
-This example is for the digestif library
+This example is for the bigstringaf library
 
-https://opam.ocaml.org/packages/digestif
+https://opam.ocaml.org/packages/bigstringaf
 
 # Source file
 

@@ -1,8 +1,8 @@
-# digestif
+# zarith
 
-This example is for the digestif library
+This example is for the zarith library
 
-https://opam.ocaml.org/packages/digestif
+https://opam.ocaml.org/packages/zarith
 
 # Source file
 

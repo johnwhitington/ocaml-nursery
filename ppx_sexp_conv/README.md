@@ -1,8 +1,8 @@
-# ppx_deriving
+# ppx_sexp_conv
 
-This example is for the ppx_deriving library
+This example is for the ppx_sexp_conv library
 
-https://opam.ocaml.org/packages/ppx_deriving
+https://opam.ocaml.org/packages/ppx_sexp_conv
 
 # Source file
 

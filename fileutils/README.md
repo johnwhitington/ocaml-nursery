@@ -1,4 +1,4 @@
-# digestif
+# fileutils
 
 This example is for the fileutils library
 

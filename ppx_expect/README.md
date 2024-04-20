@@ -1,8 +1,8 @@
-# ppx_deriving
+# ppx_expect
 
-This example is for the ppx_d library
+This example is for the ppx_expect library
 
-https://opam.ocaml.org/packages/ppx_deriving
+https://opam.ocaml.org/packages/ppx_expect
 
 # Source file
 
