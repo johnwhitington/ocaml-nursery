@@ -27,13 +27,8 @@ let extract_exn () =
     e ->
       Printf.printf "Lambdasoup exception: %s\n" (Printexc.to_string e)
 
-(* Process an HTML file, modifying it and writing back to file. *)
-let readwrite () =
-  ()
-
 let () =
   match Sys.argv with
   | [|_; "extract"|] -> extract ()
   | [|_; "extract_exn"|] -> extract_exn ()
-  | [|_; "readwrite"|] -> readwrite ()
   | _ -> Printf.eprintf "lambdasoup example: unknown command line\n"
