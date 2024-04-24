@@ -6,10 +6,10 @@ elaborate interface. A working example, no matter how small, can help a
 newcomer get started quickly.
 
 The OCaml Nursery is a place for storing examples for OCaml libraries, prior
-to their intended upstreaming -- or, if the library author does not wish
+to their intended upstreaming - or, if the library author does not wish
 accept them, permanently.
 
-One day, it would be nice to have an example for every OCaml package.
+One day, it would be nice to have an example for every opam package.
 
 ## Running and editing an example
 
@@ -17,6 +17,15 @@ There is a README.md file in each subdirectory of examples. Typically the
 source file is `bin/main.ml`, the example can be built and run (or re-run)
 with `dune exec bin/main.exe`, and cleaned up with `dune clean`. But, of
 course, some examples may have different instructions.
+
+Of course, you will need to install the library for each example first, using
+`opam install <library name>`.
+
+The examples so far are all run from the command line - you can see from the
+source if a subcommand is needed. But, of course, part or all of the example
+can be copy & pasted into OCaml's interactive top level using `#use "topfind"`
+then `#require "<library name>"`. With the alternative `utop` top level it is
+simpler - you can write `dune utop .`, and the library will be pre-loaded.
 
 ## Writing an example
 
@@ -31,7 +40,7 @@ Of course, there is no formal requirement to use this template.
 
 ## What an example is (not)
 
-- *Examples are not tests.*
+- **Examples are not tests.**
  
 - Examples are not in the documentation.
 
