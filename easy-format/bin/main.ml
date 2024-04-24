@@ -1,3 +1,5 @@
+open Easy_format
+
 let go () =
   ()
 
