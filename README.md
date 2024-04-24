@@ -38,28 +38,22 @@ warnings-as-errors. This setting is unhelpful when playing with examples.
 
 Of course, there is no formal requirement to use this template.
 
-## What an example is (not)
+## What an example is
 
-- **Examples are not tests.**
+- **Examples are different from tests**
  
-- Examples are not in the documentation.
+- **Examples are independent of the library they explain.** not in the documentation. building.
 
-- Examples are independent of the library they explain.
+- **Examples are self-contained.**
 
-- Examples are self-contained.
+- **Examples are easy to build.**
 
-- Examples have comments.
+- **Examples are easy to edit and play with.**
 
-- Examples are easy to build.
+- **Examples have comments.**
 
-- Examples are easy to keep up to date.
+- **Examples use standard techniques.**
 
-- Examples use standard techniques.
+- **Examples are easy to keep up to date.**
 
-- Examples are easy to edit and play with.
-
-- Examples are open licensed.
-
-- Examples may be any size.
-
-(mention command line, copy & paste into top level and so on)
+- **Examples are open licensed.**
