@@ -13,7 +13,9 @@ let go () =
   Bigstringaf.blit_from_string s ~src_off:0 b ~dst_off:(1024 * 1024) ~len:(1024 * 1024);
   (* Compare *)
   let cmp = Bigstringaf.memcmp b 0 b2 0 (1024 * 1024) in
-  ()
+  (* Look for a byte *)
+  let found = Bigstringaf.memchr b 0 '\n' (1024 * 1024) in
+    Printf.printf "Position of first \\n: %i\n" found
 
 let () =
   match Sys.argv with
