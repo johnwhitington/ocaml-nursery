@@ -23,10 +23,29 @@ let integers () =
     print_endline (Z.format "%0#X" biggerz)
 
 let rationals () =
-  ()
+  (* 1 / 100 *)
+  let q = Q.make (Z.of_int 1) (Z.of_int 100) in
+  (* Or, more easily 1 / 1000 *)
+  let q2 = Q.of_ints 1 1000 in
+  (* Or, even more easily 1 / 10000 *)
+  let open Q in
+  let q3 = 1 // 10000 in
+  (* Or, from a string *)
+  let q4 = Q.of_string "1/10000" in
+    (* Show parts *)
+    Printf.printf "Parts of q3: %s, %s\n" (Z.to_string q3.num) (Z.to_string q3.den);
+    (* Printing *)
+    Q.print q3;
+    print_newline ();
+    (* Arithmetic *)
+    let q5 = Q.mul q3 q4 in
+      print_endline "Multiplied:";
+      Q.print q5;
+      print_newline ();
+      Printf.printf "As a float: %f\n" (Q.to_float q4)
 
 let () =
   match Sys.argv with
-  | [|_|] -> integers ()
+  | [|_; "integers"|] -> integers ()
   | [|_; "rationals"|] -> rationals ()
   | _ -> Printf.eprintf "zarith example: unknown command line\n"
