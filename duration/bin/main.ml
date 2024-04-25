@@ -16,7 +16,9 @@ let go () =
   Duration.pp
     Format.std_formatter
     (Int64.add (Duration.of_day 112) (Duration.of_hour 21));
-  Format.pp_print_newline Format.std_formatter ()
+  Format.pp_print_newline Format.std_formatter ();
+  (* Represented as a float *)
+  Printf.printf "As a float: %f\n" (Duration.to_f (Duration.of_hour 20))
 
 let () =
   match Sys.argv with
