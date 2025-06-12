@@ -10,7 +10,9 @@ https://opam.ocaml.org/packages/fileutils
 
 # Building and running
 
-`dune exec bin/main.exe`
+`dune exec bin/main.exe filepath`
+
+`dune exec bin/main.exe fileutil`
 
 # Cleaning up
 

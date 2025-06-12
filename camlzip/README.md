@@ -10,7 +10,9 @@ https://opam.ocaml.org/packages/camlzip
 
 # Building and running
 
-`dune exec bin/main.exe`
+`dune exec bin/main.exe [zlibcompress ... | zlibuncompress ... | zipfiles ... | ziplist]`
+
+(See source for details.)
 
 # Cleaning up
 
