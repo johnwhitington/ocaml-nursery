@@ -51,7 +51,4 @@ let go () =
   Printf.printf "trim_left_sub: %S\n"
     (Stringext.trim_left_sub "-23-56+89+" ~pos:0 ~len:10 ~chars:"+-")
 
-let () =
-  match Sys.argv with
-  | [|_|] -> go ()
-  | _ -> Printf.eprintf "stringext example: unknown command line\n"
+let () = go ()

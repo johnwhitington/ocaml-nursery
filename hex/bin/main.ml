@@ -9,7 +9,4 @@ let go () =
   (* similar functions for bytes, cstrict, and bigstring also exist. *)
   Hex.hexdump (Hex.of_string "Mary had a little lamb; it's fleece was white as snow.")
 
-let () =
-  match Sys.argv with
-  | [|_|] -> go ()
-  | _ -> Printf.eprintf "hex example: unknown command line\n"
+let () = go ()

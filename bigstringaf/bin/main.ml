@@ -17,7 +17,4 @@ let go () =
   let found = Bigstringaf.memchr b 0 '\n' (1024 * 1024) in
     Printf.printf "Position of first \\n: %i\n" found
 
-let () =
-  match Sys.argv with
-  | [|_|] -> go ()
-  | _ -> Printf.eprintf "bigstringaf example: unknown command line\n"
+let () = go ()

@@ -32,7 +32,4 @@ let go () =
   in
     Printf.printf "sum: %i\n" (sum tree)
 
-let () =
-  match Sys.argv with
-  | [|_|] -> go ()
-  | _ -> Printf.eprintf "ppx_sexp_conv example: unknown command line\n"
+let () = go ()

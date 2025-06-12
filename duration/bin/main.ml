@@ -20,7 +20,4 @@ let go () =
   (* Represented as a float *)
   Printf.printf "As a float: %f\n" (Duration.to_f (Duration.of_hour 20))
 
-let () =
-  match Sys.argv with
-  | [|_|] -> go ()
-  | _ -> Printf.eprintf "duration example: unknown command line\n"
+let () = go ()

@@ -37,7 +37,4 @@ let suite =
 let go () =
   run_test_tt_main suite
 
-let () =
-  match Sys.argv with
-  | [|_|] -> go ()
-  | _ -> Printf.eprintf "ounit2 example: unknown command line\n"
+let () = go ()
