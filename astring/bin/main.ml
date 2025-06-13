@@ -43,7 +43,7 @@ let go_string_2 () =
   let sub = String.Sub.v ~start:(65 - 32) ~stop:(65 - 32 + 26) all in
   (* (We could also have used String.sub, which is the same thing) *)
   Printf.printf "sub: %s\n" (String.Sub.to_string sub);
-  (* Here is the diagram from the Astring documentation:
+  (* Here is the diagram from the documentation:
        positions  0   1   2   3   4    l-1    l
                   +---+---+---+---+     +-----+
          indices  | 0 | 1 | 2 | 3 | ... | l-1 |

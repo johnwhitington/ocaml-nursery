@@ -4,10 +4,10 @@ open Sexplib
    expressions. The Sexplib library provides for parsing and printing such
    structures. Here is the main type:
 
-  type sexp = Atom of string | List of sexp list
+   type sexp = Atom of string | List of sexp list
 
-  Sexplib is often used in conjuction with ppx_sexp_conv which generates code
-  from type definitions to convert OCaml expressions to and from s-expressions.
+   Sexplib is often used in conjuction with ppx_sexp_conv which generates code
+   from type definitions to convert OCaml expressions to and from s-expressions.
 *)
 
 (* A little example. Some Caribbean islands which contain more than one
