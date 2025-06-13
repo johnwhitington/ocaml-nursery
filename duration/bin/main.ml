@@ -3,7 +3,7 @@
    of months, or clock changes, or about leap years, and so on. It believes
    that there are 8766 hours in a year. *)
 
-let go () =
+let () =
   Printf.printf "112 days is %Li\n"
     (Duration.of_day 112);
   Printf.printf "21 hours is %Li\n"
@@ -19,5 +19,3 @@ let go () =
   Format.pp_print_newline Format.std_formatter ();
   (* Represented as a float *)
   Printf.printf "As a float: %f\n" (Duration.to_f (Duration.of_hour 20))
-
-let () = go ()
