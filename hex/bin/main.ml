@@ -7,6 +7,6 @@ let go () =
   Printf.printf "to_string: %S\n" (Hex.to_string (`Hex "4142434445"));
   Printf.printf "show: %S\n" (Hex.show (`Hex "4142434445"));
   (* similar functions for bytes, cstrict, and bigstring also exist. *)
-  Hex.hexdump (Hex.of_string "Mary had a little lamb; it's fleece was white as snow.")
+  Hex.hexdump (Hex.of_string "Mary had a little lamb; its fleece was white as snow.")
 
 let () = go ()
