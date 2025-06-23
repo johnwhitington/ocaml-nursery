@@ -48,61 +48,8 @@ let rationals () =
       print_newline ();
       Printf.printf "As a float: %f\n" (Q.to_float q4)
 
-let digits_of_pi n =
-  let zero = Z.zero
-  and one = Z.one
-  and three = Z.of_int 3
-  and four = Z.of_int 4
-  and ten = Z.of_int 10
-  and neg_ten = Z.of_int (-10) in
-  
-  (* Linear Fractional (aka Mobius) Transformations *)
-  let module LFT =
-    struct
-      let floor_ev (q, r, s, t) x =
-        Z.((q * x + r) / (s * x + t))
-
-      let unit = (one, zero, zero, one)
-
-      let comp (q, r, s, t) (q', r', s', t') =
-        Z.(q * q' + r * s', q * r' + r * t',
-           s * q' + t * s', s * r' + t * t')
-    end
-  in
-
-  let next z = LFT.floor_ev z three in
-
-  let safe z n = (n = LFT.floor_ev z four) in
-
-  let prod z n = LFT.comp (ten, Z.(neg_ten * n), zero, one) z in
-
-  let cons z k =
-    let den = 2 * k + 1 in
-      LFT.comp z (Z.of_int k, Z.of_int (2 * den), zero, Z.of_int den)
-  in
-
-  let rec digit k z n row col =
-    if n > 0 then
-      let y = next z in
-      if safe z y then
-        if col = 10 then (
-          let row = row + 10 in
-          Printf.printf "\t:%i\n%a" row Z.output y;
-          digit k (prod z y) (n - 1) row 1
-        )
-        else (
-          Printf.printf "%a" Z.output y;
-          digit k (prod z y) (n - 1) row (col + 1)
-        )
-      else digit (k + 1) (cons z k) n row col
-    else
-      Printf.printf "%*s\t:%i\n" (10 - col) "" (row + col)
-  in
-    digit 1 LFT.unit n 0 0
-
 let () =
   match Sys.argv with
   | [|_; "integers"|] -> integers ()
   | [|_; "rationals"|] -> rationals ()
-  | [|_; "digits_of_pi"; n|] -> digits_of_pi (int_of_string n)
   | _ -> Printf.eprintf "zarith example: unknown command line\n"
