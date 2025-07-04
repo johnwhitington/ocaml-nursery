@@ -71,3 +71,7 @@ Of course, there is no formal requirement to use this template.
 - **Examples need not be comprehensive.** Better a small example than no
   example at all. So long as the basics of an API are introduced, the cliff is
   climbed and the API documentation should thereafter suffice.
+
+## Status
+
+[![OCaml-CI Build Status](https://img.shields.io/endpoint?url=https://ocaml.ci.dev/badge/johnwhitington/ocaml-nursery/master&logo=ocaml)](https://ocaml.ci.dev/github/johnwhitington/ocaml-nursery)
